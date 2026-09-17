@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASF Mentorias — Conectando surfistas experientes e iniciantes</title>
+<meta name="description" content="Quadro de mentorias ASF: ofereça ou encontre mentoria no surf. Satélite do app ASF.">
+<link rel="canonical" href="https://acarolmourad-commits.github.io/asf-mentorias/">
+<style>body{font-family:system-ui,sans-serif;margin:0;background:#f5f3ff;color:#2e1065}header{background:#7c3aed;color:#fff;padding:2rem;text-align:center}nav{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;padding:1rem;background:#ede9fe}nav a{color:#6d28d9;text-decoration:none;font-size:.85rem}main{max-width:640px;margin:2rem auto;padding:0 1rem}.card{background:#fff;border-radius:16px;padding:1.5rem;margin-bottom:1rem;box-shadow:0 1px 4px rgba(0,0,0,.08)}input,select,textarea{width:100%;padding:.6rem;margin:.3rem 0;border:1px solid #c4b5fd;border-radius:8px;box-sizing:border-box}button{background:#7c3aed;color:#fff;border:0;border-radius:9999px;padding:.8rem 1.6rem;font-weight:700;cursor:pointer}.mentor{border-left:4px solid #7c3aed}footer{text-align:center;padding:2rem;color:#6d28d9}</style>
+</head>
+<body>
+<header><h1>ASF Mentorias 🎓</h1><p>Experiência que vira corrente: mentoras e mentoradas</p></header>
+<nav id="net"></nav>
+<main>
+<div class="card">
+<h2>✍️ Cadastrar-se</h2>
+<select id="papel"><option value="Mentora">Sou mentora (quero ensinar)</option><option value="Mentorada">Sou mentorada (quero aprender)</option></select>
+<input id="nome" placeholder="Nome ou @instagram">
+<select id="foco"><option>Primeira onda / iniciação</option><option>Remada e condicionamento</option><option>Leitura de mar e posicionamento</option><option>Manobras (cutback, floater...)</option><option>Surf de ondas grandes</option><option>Competição e estratégia de bateria</option></select>
+<input id="praia" placeholder="Praia base (ex: Maresias)">
+<textarea id="bio" placeholder="Mini bio / disponibilidade"></textarea>
+<button onclick="add()">Cadastrar</button>
+</div>
+<div class="card"><h2>🤝 Quadro de mentorias</h2><div id="board"><p>Ninguém cadastrada ainda — seja a primeira mentora!</p></div></div>
+<div class="card"><p>💜 As conexões acontecem na <a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade</a>. Antes da primeira sessão juntas, revisem o <a href="https://acarolmourad-commits.github.io/asf-seguranca/">ASF Segurança</a> e escolham o pico no <a href="https://acarolmourad-commits.github.io/asf-praias/">ASF Praias</a>.</p></div>
+</main>
+<footer>ASF Mentorias — satélite do <a href="https://acarolmourad-commits.github.io/asf-app/">app ASF</a></footer>
+<script>
+const sites=[["asf-app","App ASF"],["asf-praias","Praias"],["asf-previsao","Previsão"],["asf-treino","Treino"],["asf-eventos","Eventos"],["asf-glossario","Glossário"],["asf-comunidade","Comunidade"],["asf-seguranca","Segurança"],["asf-equipamento","Equipamento"],["asf-quiz","Quiz"],["asf-nutricao","Nutrição"],["asf-viagens","Viagens"],["asf-bemestar","Bem-Estar"],["asf-diario","Diário"],["asf-apnea","Apneia"],["asf-carona","Carona"],["asf-ranking","Ranking"],["asf-galeria","Galeria"],["asf-alerta","Alerta"]];
+document.getElementById('net').innerHTML=sites.map(s=>`<a href="https://acarolmourad-commits.github.io/${s[0]}/">${s[1]}</a>`).join('');
+const K='asf-mentorias';
+function load(){return JSON.parse(localStorage.getItem(K)||'[]');}
+function render(){const m=load();document.getElementById('board').innerHTML=m.length?m.map(x=>`<div class="card mentor"><b>${x.papel==='Mentora'?'🎓':'🌱'} ${x.nome}</b> <span style="font-size:.8rem;color:#7c3aed">${x.papel}</span><br>🎯 ${x.foco}<br>📍 ${x.praia}<br><small>${x.bio||''}</small></div>`).join(''):'<p>Ninguém cadastrada ainda — seja a primeira mentora!</p>';}
+function add(){const v=id=>document.getElementById(id).value.trim();if(!v('nome'))return alert('Informe seu nome!');const m=load();m.unshift({papel:v('papel'),nome:v('nome'),foco:v('foco'),praia:v('praia'),bio:v('bio')});localStorage.setItem(K,JSON.stringify(m.slice(0,50)));render();}
+render();
+</script>
+</body>
+</html>
