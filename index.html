@@ -26,6 +26,12 @@ footer{text-align:center;padding:2rem;font-size:.8rem;color:#888}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"ASF Mentorias","url":"https://acarolmourad-commits.github.io/asf-mentorias/","applicationCategory":"SportsApplication","operatingSystem":"Web","inLanguage":"pt-BR","isPartOf":{"@type":"WebSite","name":"ASF — Associação Surf Feminino","url":"https://acarolmourad-commits.github.io/asf-app/"}}
 </script>
+<meta property="og:type" content="website">
+<meta property="og:title" content="ASF Mentorias — ASF">
+<meta property="og:description" content="Quadro de mentorias entre surfistas experientes e iniciantes">
+<meta property="og:url" content="https://acarolmourad-commits.github.io/asf-mentorias/">
+<meta property="og:image" content="https://acarolmourad-commits.github.io/asf-app/assets/images/asf-logo.png">
+<meta name="twitter:card" content="summary">
 </head>
 <body>
 <header><h1>🎓 ASF Mentorias</h1><p>Quadro de mentorias entre surfistas experientes e iniciantes</p></header>
@@ -87,6 +93,5 @@ function addXP(n){localStorage.setItem('asf_xp',XP()+n);document.getElementById(
 document.getElementById('xp').textContent=XP();
 const seed=[{t:'Quero ser mentora (ensino)',n:'Carol',nv:'Avançada',p:'Praia Grande'},{t:'Quero mentoria (aprendo)',n:'Luiza',nv:'Iniciante',p:'Maresias'}];function render(){const l=JSON.parse(localStorage.getItem('asf_mentor')||'null')||seed;document.getElementById('lista').innerHTML=l.map(m=>`<p>${m.t.startsWith('Quero ser')?'👩‍🏫':'🙋‍♀️'} <b>${m.n}</b> — ${m.nv} — ${m.p}</p><hr>`).join('');}function pub(){const m={t:document.getElementById('t').value,n:document.getElementById('n').value,nv:document.getElementById('nv').value,p:document.getElementById('p').value};if(!m.n)return;const l=JSON.parse(localStorage.getItem('asf_mentor')||'null')||seed;l.unshift(m);localStorage.setItem('asf_mentor',JSON.stringify(l));render();addXP(15);}render();
 </script>
-<footer style="text-align:center;padding:18px 12px;font-size:12px;color:#567;background:transparent">ASF — Associação de Surf Feminino · <a href="https://acarolmourad-commits.github.io/asf-app/privacidade.html" style="color:#00A8CC">Privacidade</a> · <a href="https://acarolmourad-commits.github.io/asf-app/cookies.html" style="color:#00A8CC">Cookies</a> · <a href="https://acarolmourad-commits.github.io/asf-app/termos-de-uso.html" style="color:#00A8CC">Termos</a></footer>
 </body>
 </html>
