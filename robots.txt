@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://acarolmourad-commits.github.io/asf-mentorias/sitemap.xml
+
+Sitemap: https://mentorias.asf.surf/sitemap.xml
