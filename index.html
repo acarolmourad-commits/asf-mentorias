@@ -36,6 +36,7 @@ footer{text-align:center;padding:2rem;font-size:.8rem;color:#888}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://acarolmourad-commits.github.io/thumbnails/asf-mentorias.jpg">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1643806355443576" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://acarolmourad-commits.github.io/asf-app/asf-site-redesign.css">
 </head>
 <body>
 <header><h1>🎓 ASF Mentorias</h1><p>Quadro de mentorias entre surfistas experientes e iniciantes</p></header>
@@ -60,5 +61,6 @@ document.getElementById('xp').textContent=XP();
 const seed=[{t:'Quero ser mentora (ensino)',n:'Carol',nv:'Avançada',p:'Praia Grande'},{t:'Quero mentoria (aprendo)',n:'Luiza',nv:'Iniciante',p:'Maresias'}];function render(){const l=JSON.parse(localStorage.getItem('asf_mentor')||'null')||seed;document.getElementById('lista').innerHTML=l.map(m=>`<p>${m.t.startsWith('Quero ser')?'👩‍🏫':'🙋‍♀️'} <b>${m.n}</b> — ${m.nv} — ${m.p}</p><hr>`).join('');}function pub(){const m={t:document.getElementById('t').value,n:document.getElementById('n').value,nv:document.getElementById('nv').value,p:document.getElementById('p').value};if(!m.n)return;const l=JSON.parse(localStorage.getItem('asf_mentor')||'null')||seed;l.unshift(m);localStorage.setItem('asf_mentor',JSON.stringify(l));render();addXP(15);}render();
 </script>
 <script src="https://acarolmourad-commits.github.io/asf-app/asf-network.js" defer></script>
+  <script src="https://acarolmourad-commits.github.io/asf-app/asf-redesign.js" defer></script>
 </body>
 </html>
